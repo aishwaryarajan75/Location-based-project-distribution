@@ -30,6 +30,19 @@
 	  stroke: #000;
 	  shape-rendering: crispEdges;
 	}
+	
+	.hide-table{
+		display: none;
+	}
+	
+	.show-table {
+		display: block;
+	}
+	
+	.show-table, tr, th, td{
+		border: 1px solid black
+	}
+	
     </style>
 </head>
 <body> 
@@ -47,7 +60,7 @@
 <h5> TATA Consultancy Services - Bangalore, India </h5> <br/>
 <button id="projectPageButton"> Projects </button>
 </div>
-<table id = "resultTable" style="display:none">
+<table id = "resultTable" class="hide-table">
 	<thead>
 		<tr>
 			<th>Title</th>
@@ -207,7 +220,7 @@ data.forEach(function(d) {
 					});
 					
 					$("table#resultTable tbody").html(result);
-					$("table#resultTable").show();
+					$("table#resultTable").attr("class","show-table");
 					
 					console.log(markers);
 					
