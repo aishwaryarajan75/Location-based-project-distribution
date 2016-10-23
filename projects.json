@@ -1,0 +1,117 @@
+{
+"projects": [
+{
+        "Title":"MatchFacts Application using MongoDB",
+		"Professor":"Prof. Ramez Elmasri",
+		"Description":"Developed a Java application that uses huge amount of raw data provided in CSV files and creates two different documents by referring a relational schema consisting of 6 relations (6 to 2 reduction) and inserts the objects into MongoDB. This application can be further modified and reused for various cases of relations to documents reduction. Used Robomongo, as GUI for MongoDB. Also, wrote several Mongo Scripts to query the database.",
+		"Environment":"Eclipse, MongoDB, Robomongo",
+		"startDate":"July 2016",
+		"endDate":"August 2016 ",
+		"latitude":32.733340, 
+		"longitude": -97.113387,
+		"Score" : 100
+},
+{
+        "Title":"Wound-Wait Algorithm Implemention using Transaction Processing Concepts",
+		"Professor":"Prof. Ramez Elmasri",
+		"Description":"Implemented the Wound-Wait Algorithm considering all the cases of Transaction Processing which involves reading and writing of data items using read locks and write locks",
+		"Environment":"Eclipse",
+		"startDate":"July 2016",
+		"endDate":"August 2016 ",
+		"latitude": 32.732263,
+		"longitude": -97.113597,
+		"Score": 100
+},
+	{
+	    "Title":"IBM Bluemix",
+		"Professor":"Prof. David Levine",
+		"Description":"Store a copy of local file encrypted on the service and retrieve and decrypt a remote file along with listing and deleting files. Also developed services such as user authentication through web interface, per user file storage limit and file versioning and viewing.",
+		"Environment":"Python/Flask",
+		"startDate":"June 2016",
+		"endDate":"July 2016",
+		"latitude": 32.733357, 
+		"longitude":-97.109476,
+		"Score": 75
+	},
+	{
+	"Title":"Amazon Web Services (AWS)",
+		"Professor":"Prof. David Levine",
+		"Description":"Calculated time to put huge data sets (50k tuples) to AWS and load that data in relational DB and querying data several thousand times. Performed the same using Elastic Cache (Memcache) and developed a web interface to allow users to dynamically create queries.",
+		"Environment":"Python/Flask",
+		"startDate":"June 2016",
+		"endDate":"July 2016",
+		"latitude":32.729762,
+		"longitude": -97.112887,
+		"Score":85
+	},
+	{
+	    "Title":"Hadoop (on AWS)",
+		"Professor":"Prof. David Levine",
+		"Description":"Analysed an Earthquakes data set using different numbers of mappers and reducers. Executed it on several EC2 instances and instrumented the time taken. Clustered the map reduce output using k-means cluster method and visualized the output obtained using D3.js package.",
+		"Environment":"Python/Flask, Hadoop (2.6.0)",
+		"startDate":"June 2016",
+		"endDate":"July 2016",
+		"latitude":32.728968, 
+		"longitude":-97.111592,
+		"Score": 80
+		
+},
+{
+        "Title":"Google App Engine",
+		"Professor":"Prof. David Levine",
+		"Description":"Created a web service that allows multiple users to login, upload pictures with comments, remove their pictures and see others pictures. Picture size and number of pictures is restricted per user. Used jmeter to stress test and validate my analysis.",
+		"Environment":"Python/Flask",
+		"startDate":"June 2016",
+		"endDate":"July 2016",
+		"latitude":32.732534, 
+		"longitude": -97.113795,
+		"Score": 100
+},
+{
+        "Title":"TutorMe",
+		"Professor":"Prof. Bahram Khalili",
+		"Description":"Developed an android application which helps students in availing tutoring services in various categories. The project was developed using Agile Methodology (SCRUM). Also, served as a Scrum Master for sprint 2.",
+		"Environment":"Android Studio, Laravel",
+		"startDate":"February 2016",
+		"endDate":"April 2016",
+		"latitude":  32.731425, 
+		"longitude": -97.112604,
+		"Score": 100
+},
+{
+        "Title":"Advisor Scheduler Application",
+		"Professor":"Prof. David C. Kung",
+		"Description":"Applied various Software Design Patterns for design problems in an on-going university project being designed to automate the student advising sessions. Students as well as advisors could manage their advising sessions using this application.",
+		"Environment":"Eclipse, MySQL",
+		"startDate":"March 2016",
+		"endDate":"May 2016",
+		"latitude": 32.732133, 
+		"longitude":-97.110113,
+		"Score" : 92
+},
+{
+        "Title":"DOTTS",
+		"Professor":"Prof. John H. Robb",
+		"Description":"Worked on the tool Day Trader Training Simulator by designing several test cases in detail for the entire software and by performing unit tests for the entire simulation software.",
+		"Environment":"JUnit, JaCoCo",
+		"startDate":"March 2016",
+		"endDate":"April 2016",
+		"latitude": 32.731583, 
+		"longitude": -97.114194,
+		"Score" : 76
+},
+{
+        "Title":"Gesture Recognising Wheelchair Using Smartphone",
+		"Professor":"Associate Prof. Srikanth S.P",
+		"Description":"Developed an Android application to control a smart wheelchair with the help of hand gestures made using the application.",
+		"Environment":"Android Developer Tools (ADT), Flash Magic, Keil Micro Vision",
+		"startDate":"February 2014",
+		"endDate":"May 2014",
+		"latitude": 12.984192, 
+		"longitude": 77.762186,
+		"Score":98
+}
+]
+
+}
+

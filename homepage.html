@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<head> 
+<title>homepage</title>
+ <style>
+      html, body {
+        height: 40%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 500px;
+      }
+	  
+	  
+	  .bar{
+    fill: steelblue;
+  }
+
+  .bar:hover{
+    fill: brown;
+  }
+
+	.axis {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+    </style>
+</head>
+<body> 
+<h2 align = "center">Welcome To My Homepage</h2>
+<div style="text-align:center">
+<h3> Name : Aishwarya Rajan </h3> 
+<h3> Education: </h3> 
+<h4> M.S in Computer Science [August, 2015- December, 2016] </h4>
+<h5> University : University of Texas at Arlington, U.S.A </h5>
+<h5><p> First Major : <strong><i>Software Engineering</i></strong></p> <p> Second Major : <strong><i>Databases/Data Science</strong></i> </p><br/>
+<h4> Bachelor of Engineering in Computer Science and Engineering [September, 2010- June, 2014] </h4>
+<h5> University : M.V.J College of Engineering (affiliated to Visvesvaraya Technological University - Belgaum, India) - Bangalore,India </h5>
+<h3> Work Experience : </h3>
+<h4> Assistant Systems Engineer-Trainee [December, 2014 - July, 2015] </h4>
+<h5> TATA Consultancy Services - Bangalore, India </h5> <br/>
+<button id="projectPageButton"> Projects </button>
+</div>
+<table id = "resultTable" style="display:none">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Professor</th>
+			<th>Description</th>
+			<th>Environment</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>Scores</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	</tbody> 
+</table>
+<br><br>
+<div id = "chart"></div>
+<div id="map"></div>
+<script>
+		
+      var myLatLng = {lat: 32.729703,  lng: -97.113356};
+      var markers = [];
+      var map;
+      
+      function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 6,
+          center: myLatLng
+        });
+      }
+
+      function addMarker(latlng, myTitle) {
+          markers.push(new google.maps.Marker({
+            position: latlng, 
+            map: map,
+            title: myTitle,
+            icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(markers.length + 65) + ".png"
+          }));    
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfyv6HJjV-3jpgnj80UXLPA561lI-d_LI"
+    async defer></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script>
+// set the dimensions of the canvas
+    var margin = {top: 20, right: 20, bottom: 500, left: 40},
+    width = 1000 - margin.left - margin.right,
+    height = 1000 - margin.top - margin.bottom;
+	
+// set the ranges
+var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+var y = d3.scale.linear().range([height, 0]);
+
+
+// define the axis
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10);
+	
+// add the SVG element
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")");
+
+function drawChart(data){
+
+//console.log(data);
+data.forEach(function(d) {
+        d.Letter = d.Title;
+        d.Freq = +d.Score;
+    });
+	
+  // scale the range of the data
+  x.domain(data.map(function(d) { return d.Letter; }));
+  y.domain([0, d3.max(data, function(d) { return d.Freq; })]);
+
+  // add axis
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.55em")
+      .attr("transform", "rotate(-90)" );
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 5)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Score");
+
+
+  // Add bar chart
+  svg.selectAll("bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.Letter); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.Freq); })
+      .attr("height", function(d) { return height - y(d.Freq); });
+	  
+}
+		  
+	</script>
+	
+
+<script src = "https://code.jquery.com/jquery-3.1.0.min.js"> </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#projectPageButton").click(function(){
+			populateData();
+		});
+		
+		function populateData(){
+			
+			$.ajax({
+				method : "GET",
+				url:"/projects",
+				success: function(data){
+					//console.log(data);
+					var result ="";
+					initMap();
+					var mapData = []
+					$.each(data.projects,function(i,val){
+						result+="<tr>";
+						result+="<td>"+val.Title+"</td>";
+						result+="<td>"+val.Professor+"</td>";
+						result+="<td>"+val.Description+"</td>";
+						result+="<td>"+val.Environment+"</td>";
+						result+="<td>"+val.startDate+"</td>";
+						result+="<td>"+val.endDate+"</td>";
+						result+="<td>"+val.latitude+"</td>";
+						result+="<td>"+val.longitude+"</td>";
+						result+="<td>"+val.Score+"</td>";
+						result+="</tr>";
+						addMarker(new google.maps.LatLng(val.latitude,val.longitude), val.Title)
+						
+						mapData.push({"Title":val.Title,"Score":val.Score});
+					});
+					
+					$("table#resultTable tbody").html(result);
+					$("table#resultTable").show();
+					
+					console.log(markers);
+					
+					drawChart(mapData);
+				},
+				error(err){
+				
+				}
+			});
+		}
+		
+	});
+</script>
+</body>
+</html>
