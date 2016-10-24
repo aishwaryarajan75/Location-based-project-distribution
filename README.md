@@ -48,3 +48,9 @@ Q4) What aspect of the implementation did you find hard, if any, and why?
 
 For me the implementation of maps and bargraph was a bit difficult as it had more dependencies. Also, I had to write a lot of geometrical specifications for the implementation of bar graph and for Google maps too. Also, found some difficulty in implementing the marker feature of the maps initially. 
 
+Q5) What components OTHER than your client and server framework did you install, if any, and if so, what is their purpose for your solution? 
+
+I haven't installed any other components other that client and server framework in my project since I tried to implement it in a least complex way, as much as possible. I have used external libraries like the d3.js library for implementing bar graph and the Google Maps API for implementing or adding the Google Maps for my website's homepage.
+
+Q6) What Ubuntu commands are required to deploy and run your server?
+
