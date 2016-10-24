@@ -17,6 +17,7 @@ I have choosed Node.js as server side framework. I have used Node.js since:
 Q2) What client framework did you choose and why?
 
 AJAX and jQuery were used as client frameworks. 
+
 The advantages of AJAX are:
 
 *Reduce the traffic travels between the client and the server.
