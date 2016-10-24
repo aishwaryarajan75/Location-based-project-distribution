@@ -2,6 +2,7 @@
 My Personal Website which has details of my academic background and the academic projects on which I have worked and and my work experience.Below are the answers for a few questions related to this website.
 
 Q1) What server framework did you choose and why?
+
 I have choosed Node.js as server side framework. I have used Node.js since:
 
 *It is quite fast. It uses the V8 engine developed by Google for use in Chrome. V8 compiles and executes JavaScript at lightening speeds mainly due to the fact that V8 compiles JavaScript into native machine code. 
@@ -14,6 +15,7 @@ I have choosed Node.js as server side framework. I have used Node.js since:
 
 
 Q2) What client framework did you choose and why?
+
 AJAX and jQuery were used as client frameworks. 
 The advantages of AJAX are:
 
@@ -38,6 +40,7 @@ The advantages of jQuery are:
 *jQuery lets you develop Ajax templates with ease, Ajax enables a sleeker interface where actions can be performed on pages without requiring the entire page to be reloaded.
 
 Q3) What aspect of the implementation did you find easy, if any, and why?
+
 I felt that the implementation of fetching the data from json file and displaying it in the form of table as eay since i just had to fetch the data from the json file using a url and create a table and populate the data into the table unlike the maps and the bar graph part where i had to add other external links and APIs. No doubt, AJAX and jQuery were used for this but implenting this part was easier than implementing maps and bar graph part.
 
 Q4) What aspect of the implementation did you find hard, if any, and why?
