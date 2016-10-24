@@ -46,3 +46,5 @@ I felt that the implementation of fetching the data from json file and displayin
 
 Q4) What aspect of the implementation did you find hard, if any, and why?
 
+For me the implementation of maps and bargraph was a bit difficult as it had more dependencies. Also, I had to write a lot of geometrical specifications for the implementation of bar graph and for Google maps too. Also, found some difficulty in implementing the marker feature of the maps initially. 
+
