@@ -113,8 +113,8 @@
     height = 1000 - margin.top - margin.bottom;
 	
 // set the ranges
-var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
-var y = d3.scale.linear().range([height, 0]);
+var x = d3.scalescaleOrdinal(rangeRoundBands([0, width], .05));
+var y = d3.scaleLinear(range([height, 0]));
 
 
 // define the axis
