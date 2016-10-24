@@ -47,5 +47,5 @@ http.createServer(function(req,res){
 			}
 
 	}).listen(process.env.PORT || 8080, function() {
-    console.log('Ready on port %d', server.address().port);
+    console.log('server started');
 });
