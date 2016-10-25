@@ -56,3 +56,6 @@ Q6) What Ubuntu commands are required to deploy and run your server?
 Since the server side framework used is Node.js, After installing node we have to install npm. So the command used is npm install.
 
 Also, to create package.json the command npm start is used. package.json is created when you use npm start for the first time. Later, to run the files, just go to the folder in which the files are present, through command prompt and type npm start everytime. Also, command node homepage.js is given in the start section in package.json so that everytime npm start command is types it invokes node homepage.js command and the user is directed to homepage. 
+
+I have connected my Github repository to Heroku server and deployed the application.
+Note: When Maps is displayed on the homepage only one marker is visible but when we zoom at that points all 10 markers would be visible. This is because the latitude and longitude values are too near by. 
