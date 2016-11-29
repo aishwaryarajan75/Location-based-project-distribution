@@ -43,7 +43,141 @@
 		border: 1px solid black
 	}
 	
+	@-webkit-keyframes anim {
+		from {background-color: blue;}
+		to {background-color: white;}
+	}
+
+	/* Standard syntax */
+	@keyframes anim {
+		from {background-color: blue;}
+		to {background-color: white;}
+	}
+	
+	@-webkit-keyframes anim1 {
+		from {color: red;}
+		to {color: grey;}
+	}
+
+	/* Standard syntax */
+	@keyframes anim1 {
+		from {color: red;}
+		to {color: grey;}
+	}
+	
+	.animate {
+		background: blue;
+		-webkit-animation: anim 2s infinite; /* Chrome, Safari, Opera */
+		animation: anim 2s infinite;
+	}
+	.animate1 {
+		color: red;
+		-webkit-animation: anim1 2s infinite; /* Chrome, Safari, Opera */
+		animation: anim1 2s infinite;
+	}
+	
     </style>
+	
+<script src = "https://code.jquery.com/jquery-3.1.0.min.js"> </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		this.major_data = [];
+		this.length = 0;
+		var me =this;
+		$("#projectPageButton").click(function(){
+			$("div#animate").attr("class","hide-table");
+			populateData();
+		});
+		
+		$("#animateButton").click(function(){
+			$("table#resultTable").attr("class","hide-table");
+			getData();
+		});
+		
+		function getData(){
+			$.ajax({
+				method : "GET",
+				url:"/majorcodes"
+			}).done(function(res){
+				for(var i=0; i<100; i++){
+					setTimeout(getMajorData,i*500,res[i]["Major Information"]["Major Code"]);
+				}
+			});
+		}
+		
+		function getMajorData(majorCode){
+			$.ajax({
+				method : "GET",
+				url: "/majors",
+				data: {"majorcode":majorCode}
+			}).done(function(res){
+				if(me.major_data.length <20){
+					me.major_data.push(res);
+					me.length++;
+				}else{
+					me.major_data[me.length%20]=res;
+					me.length++;
+				}
+				upDateDiv();
+			})
+		}
+		
+		function upDateDiv(){
+			var result ="";
+			for(var i=0;i<me.major_data.length;i++){
+				result +="<div class=\"animate\" style=\"padding: 5%;\">";
+				result +="<span class=\"animate1\">";
+				result +=me.major_data[i]['Major Information'].Major;
+				result +="</span>";
+				result +="</div>";
+			}
+			$("div#animate").html(result);
+			$("div#animate").attr("class","show-table");
+		}
+		
+		
+		function populateData(){
+			
+			$.ajax({
+				method : "GET",
+				url:"/projects",
+				success: function(data){
+					//console.log(data);
+					var result ="";
+					initMap();
+					var mapData = []
+					$.each(data.projects,function(i,val){
+						result+="<tr>";
+						result+="<td>"+val.Title+"</td>";
+						result+="<td>"+val.Professor+"</td>";
+						result+="<td>"+val.Description+"</td>";
+						result+="<td>"+val.Environment+"</td>";
+						result+="<td>"+val.startDate+"</td>";
+						result+="<td>"+val.endDate+"</td>";
+						result+="<td>"+val.latitude+"</td>";
+						result+="<td>"+val.longitude+"</td>";
+						result+="<td>"+val.Score+"</td>";
+						result+="</tr>";
+						addMarker(new google.maps.LatLng(val.latitude,val.longitude), val.Title)
+						
+						mapData.push({"Title":val.Title,"Score":val.Score});
+					});
+					
+					$("table#resultTable tbody").html(result);
+					$("table#resultTable").attr("class","show-table");
+					
+					console.log(markers);
+					
+					drawChart(mapData);
+				},
+				error(err){
+				
+				}
+			});
+		}
+		
+	});
+</script>
 </head>
 <body> 
 <h2 align = "center">Welcome To My Homepage</h2>
@@ -59,6 +193,8 @@
 <h4> Assistant Systems Engineer-Trainee [December, 2014 - July, 2015] </h4>
 <h5> TATA Consultancy Services - Bangalore, India </h5> <br/>
 <button id="projectPageButton"> Projects </button>
+
+<button id="animateButton"> Animate </button>
 </div>
 <table id = "resultTable" class="hide-table">
 	<thead>
@@ -78,6 +214,7 @@
 		
 	</tbody> 
 </table>
+<div id="animate" style="width: 50%;margin: 5% 25%;padding: 5%;" class="hide-table"></div>
 <br><br>
 <div id = "chart"></div>
 <div id="map"></div>
@@ -183,56 +320,5 @@ data.forEach(function(d) {
 }
 		  
 	</script>
-	
-
-<script src = "https://code.jquery.com/jquery-3.1.0.min.js"> </script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#projectPageButton").click(function(){
-			populateData();
-		});
-		
-		function populateData(){
-			
-			$.ajax({
-				method : "GET",
-				url:"/projects",
-				success: function(data){
-					//console.log(data);
-					var result ="";
-					initMap();
-					var mapData = []
-					$.each(data.projects,function(i,val){
-						result+="<tr>";
-						result+="<td>"+val.Title+"</td>";
-						result+="<td>"+val.Professor+"</td>";
-						result+="<td>"+val.Description+"</td>";
-						result+="<td>"+val.Environment+"</td>";
-						result+="<td>"+val.startDate+"</td>";
-						result+="<td>"+val.endDate+"</td>";
-						result+="<td>"+val.latitude+"</td>";
-						result+="<td>"+val.longitude+"</td>";
-						result+="<td>"+val.Score+"</td>";
-						result+="</tr>";
-						addMarker(new google.maps.LatLng(val.latitude,val.longitude), val.Title)
-						
-						mapData.push({"Title":val.Title,"Score":val.Score});
-					});
-					
-					$("table#resultTable tbody").html(result);
-					$("table#resultTable").attr("class","show-table");
-					
-					console.log(markers);
-					
-					drawChart(mapData);
-				},
-				error(err){
-				
-				}
-			});
-		}
-		
-	});
-</script>
 </body>
 </html>
