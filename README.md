@@ -59,3 +59,26 @@ Also, to create package.json the command npm start is used. package.json is crea
 
 I have connected my Github repository to Heroku server and deployed the application.
 Note: When Maps is displayed on the homepage only one marker is visible but when we zoom at that points all 10 markers would be visible. This is because the latitude and longitude values are too near by. 
+
+
+Project 2 FAQ (A detailed Analysis)
+
+Q1) What SQL or NOSQL database did you choose and why?
+
+I have choosen a NOSQL Database Mongo Lab for the project. Because it is :
+* Document Oriented Storage − Data is stored in the form of JSON style documents.
+
+* Index on any attribute - Can be indexed on any attribute.
+
+* Replication and high availability
+
+* Auto-sharding
+
+* Rich queries
+
+* Fast in-place updates
+
+
+Q2) What aspect of the implementation did you find easy, if any, and why?
+
+I found the implementation of fetching the data from the database as an easier task. I had to display the records 20 at a time using a couple of loops and conditions and also, ajax style calls are always efficient and easier to implement. 
