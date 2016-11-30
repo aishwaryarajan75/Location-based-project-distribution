@@ -66,6 +66,7 @@ Project 2 FAQ (A detailed Analysis)
 Q1) What SQL or NOSQL database did you choose and why?
 
 I have choosen a NOSQL Database Mongo Lab for the project. Because it is :
+
 * Document Oriented Storage − Data is stored in the form of JSON style documents.
 
 * Index on any attribute - Can be indexed on any attribute.
@@ -82,3 +83,13 @@ I have choosen a NOSQL Database Mongo Lab for the project. Because it is :
 Q2) What aspect of the implementation did you find easy, if any, and why?
 
 I found the implementation of fetching the data from the database as an easier task. I had to display the records 20 at a time using a couple of loops and conditions and also, ajax style calls are always efficient and easier to implement. 
+
+Q3) What aspect of the implementation did you find hard, if any, and why?
+
+I had not written a code snippet for animation features before in any of my projects. It was a bit of a task for me to explore in deatil about the implementation of animation features and implement the animation feature in my project. It is something which was new to me and a challenging task.
+
+Q4) If you were to use these technologies professionally, what would be your biggest concern?
+
+Since the project was small scale, I felt Mongo Lab to be convinient. Additional features and licenses would have been required to use it for a large scale real time project which would involve huge dataset of thousands of records. Also, the delay constraint for displaying the records shlould be taken into consideration. Also, a lot more of research would be required to explore complex and eye-catching animation features and there will be a requirement to use good animation tools for the same since many clients would stress on this particular requirement.
+
+
