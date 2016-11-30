@@ -93,3 +93,4 @@ Q4) If you were to use these technologies professionally, what would be your big
 Since the project was small scale, I felt Mongo Lab to be convinient. Additional features and licenses would have been required to use it for a large scale real time project which would involve huge dataset of thousands of records. Also, the delay constraint for displaying the records shlould be taken into consideration. Also, a lot more of research would be required to explore complex and eye-catching animation features and there will be a requirement to use good animation tools for the same since many clients would stress on this particular requirement.
 
 
+
