@@ -30,7 +30,7 @@ The advantages of AJAX are:
 
 The advantages of jQuery are:
 
-*Tt is a lot more easy to use compared to standard javascript and other javascript libraries. Apart from simple syntax, it also requires much less lines of code to achieve the same feature in comparison.
+*It is a lot more easy to use compared to standard javascript and other javascript libraries. Apart from simple syntax, it also requires much less lines of code to achieve the same feature in comparison.
 
 *jQuery enables you to perform hordes of functions in comparison to other Javascript libraries. 
 
