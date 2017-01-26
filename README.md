@@ -53,6 +53,7 @@ Q5) What components OTHER than your client and server framework did you install,
 I haven't installed any other components other that client and server framework in my project since I tried to implement it in a least complex way, as much as possible. I have used external libraries like the d3.js library for implementing bar graph and the Google Maps API for implementing or adding the Google Maps for my website's homepage.
 
 Q6) What Ubuntu commands are required to deploy and run your server?
+
 Since the server side framework used is Node.js, After installing node we have to install npm. So the command used is npm install.
 
 Also, to create package.json the command npm start is used. package.json is created when you use npm start for the first time. Later, to run the files, just go to the folder in which the files are present, through command prompt and type npm start everytime. Also, command node homepage.js is given in the start section in package.json so that everytime npm start command is types it invokes node homepage.js command and the user is directed to homepage. 
