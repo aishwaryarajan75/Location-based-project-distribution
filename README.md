@@ -1,4 +1,4 @@
-# CSE5335-arn4795
+# Location based project distribution
 My Personal Website which has details of my academic background and the academic projects on which I have worked and and my work experience.Below are the answers for a few questions related to this website.
 
 Q1) What server framework did you choose and why?
